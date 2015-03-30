@@ -23,5 +23,5 @@ run:
         - 'export GIT_SSL_NO_VERIFY=1'
         - 'git clone https://github.com/ssvb/cpuburn-arm.git'
         - 'cd cpuburn-arm'
-        - 'curl -k https://raw.githubusercontent.com/EmbeddedAndroid/kernel-ci-tests/master/cpufreq-ljt-stress-test/cpufreq-ljt-stress-test-wrapper.py > cpufreq-ljt-stress-test-wrapper.py'
+        - 'curl -k https://raw.githubusercontent.com/kernelci/lava-kernel-tests/master/cpufreq-ljt-stress-test/cpufreq-ljt-stress-test-wrapper.py > cpufreq-ljt-stress-test-wrapper.py'
         - 'python cpufreq-ljt-stress-test-wrapper.py'
