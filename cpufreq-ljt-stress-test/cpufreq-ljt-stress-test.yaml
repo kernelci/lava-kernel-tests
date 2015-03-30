@@ -1,0 +1,27 @@
+metadata:
+    name: cpufreq-ljt-stress-test
+    format: "Lava-Test-Shell Test Definition 1.0"
+    description: "Basic reliability tests (correctness of jpeg decompression) for all cpufreq operating points."
+    maintainer:
+        - tyler.baker@linaro.org
+    os:
+        - ubuntu
+    devices:
+        - cubieboard3
+
+install:
+    deps:
+        - ruby
+        - git
+        - curl
+        - build-essential
+        - libjpeg-turbo-progs
+        - python
+run:
+    steps:
+        - 'cd /tmp'
+        - 'export GIT_SSL_NO_VERIFY=1'
+        - 'git clone https://github.com/ssvb/cpuburn-arm.git'
+        - 'cd cpuburn-arm'
+        - 'curl -k https://raw.githubusercontent.com/EmbeddedAndroid/kernel-ci-tests/master/cpufreq-ljt-stress-test/cpufreq-ljt-stress-test-wrapper.py > cpufreq-ljt-stress-test-wrapper.py'
+        - 'python cpufreq-ljt-stress-test-wrapper.py'
