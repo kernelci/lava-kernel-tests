@@ -19,7 +19,7 @@ install:
         - libcap-dev
         - binutils-dev
         - perl
-        - schedutils
+
 run:
     steps:
         - 'cd /tmp'
