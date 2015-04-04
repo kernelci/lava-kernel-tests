@@ -1,0 +1,34 @@
+metadata:
+    name: kselftest
+    format: "Lava-Test-Shell Test Definition 1.0"
+    description: "Kernel Self Test"
+    maintainer:
+        - tyler.baker@linaro.org
+    os:
+        - ubuntu
+    devices:
+        - all
+
+params:
+    ARCH: arm
+
+install:
+    deps:
+        - curl
+        - libpopt-dev
+        - libcap-dev
+        - binutils-dev
+        - perl
+        - schedutils
+run:
+    steps:
+        - 'cd /tmp'
+        - 'curl http://storage.kernelci.org/images/selftests/$ARCH/kselftest.tar.gz > kselftest.tar.gz'
+        - 'tar -C . -xaf kselftest.tar.gz'
+        - './run_kselftest.sh'
+
+parse:
+    pattern: "^selftests:\\s(?P<test_case_id>\\S+)\\s[[](?P<result>(FAIL|PASS))[]]"
+    fixupdict:
+        FAIL: fail
+        PASS: pass
