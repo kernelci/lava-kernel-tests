@@ -25,6 +25,7 @@ run:
         - 'cd /tmp'
         - 'curl http://storage.kernelci.org/images/selftests/$ARCH/kselftest.tar.gz > kselftest.tar.gz'
         - 'tar -C . -xaf kselftest.tar.gz'
+        - 'cd kselftest'
         - './run_kselftest.sh'
 
 parse:
