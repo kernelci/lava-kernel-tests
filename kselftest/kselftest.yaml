@@ -29,7 +29,8 @@ run:
         - './run_kselftest.sh'
 
 parse:
-    pattern: "^selftests:\\s(?P<test_case_id>\\S+)\\s[[](?P<result>(FAIL|PASS))[]]"
+    pattern: "^selftests:\\s(?P<test_case_id>\\S+)\\s[[](?P<result>(FAIL|PASS|SKIP))[]]"
     fixupdict:
         FAIL: fail
         PASS: pass
+        SKIP: skip
