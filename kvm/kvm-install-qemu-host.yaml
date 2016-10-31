@@ -1,0 +1,26 @@
+metadata:
+    name: kvm-install-qemu-host
+    format: "Lava-Test-Shell Test Definition 1.0"
+    description: "KVM install QEMU on host"
+    maintainer:
+        - tyler.baker@linaro.org
+    scope:
+        - functional
+        - virtualization
+    os:
+        - ubuntu
+        - debian
+
+install:
+    deps:
+        - qemu-system
+        - openssh-server
+        - ntp
+
+run:
+    steps:
+        - service ntp stop
+        - ntpd -gq
+        - service ntp start
+        - lava-start-vms
+        - lava-wait-for-vms

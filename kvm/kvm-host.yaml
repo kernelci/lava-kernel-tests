@@ -1,0 +1,16 @@
+metadata:
+    name: kvm-host
+    format: "Lava-Test-Shell Test Definition 1.0"
+    description: "KVM Host"
+    maintainer:
+        - tyler.baker@linaro.org
+    scope:
+        - functional
+        - virtualization
+    os:
+        - ubuntu
+        - debian
+run:
+    steps:
+        - lava-start-vms
+        - lava-wait-for-vms
